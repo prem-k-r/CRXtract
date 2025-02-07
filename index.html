@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Diveify - Extension Downloader</title>
+    <link rel="icon" href="svgs/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="glass-card">
+        <h1>Code Diveify</h1>
+        <h2>&lt;Source Code&gt; Downloader();</h2>
+        <form id="extensionForm">
+
+            <!-- Browser Selection -->
+            <div class="browser-selection">
+                <input type="radio" id="chrome" name="browser" value="chrome" class="browser-input" checked>
+                <label for="chrome" class="browser-label"><i class="fab fa-chrome"></i></label>
+
+                <input type="radio" id="firefox" name="browser" value="firefox" class="browser-input">
+                <label for="firefox" class="browser-label"><i class="fab fa-firefox"></i></label>
+
+                <input type="radio" id="opera" name="browser" value="opera" class="browser-input">
+                <label for="opera" class="browser-label"><i class="fab fa-opera"></i></label>
+
+                <input type="radio" id="edge" name="browser" value="edge" class="browser-input">
+                <label for="edge" class="browser-label"><i class="fab fa-edge"></i></label>
+            </div>
+
+            <input type="text" id="extensionInput" placeholder="Enter Extension ID or URL">
+
+            <select id="downloadType">
+                <option value="crx">Download as CRX</option>
+            </select>
+
+            <button type="submit" id="downloadButton">
+                Download Extension
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

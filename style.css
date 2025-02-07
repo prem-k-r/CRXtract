@@ -1,0 +1,152 @@
+/* Reset Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	/* background: #121212; */
+	background: url("images/designed_by_starline-freepik.jpg") no-repeat center
+		center/cover;
+	color: white;
+}
+
+/* Glassmorphic Card */
+.glass-card {
+	width: 100%;
+	max-width: 30rem;
+	padding: 2.5rem;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+
+.glass-card h1 {
+	margin-bottom: 0.7rem;
+}
+
+.glass-card h2 {
+	margin-bottom: 2.3rem;
+	font-weight: lighter;
+}
+
+/* Input Field */
+input {
+	width: 100%;
+	margin-bottom: 1.5rem;
+	padding: 12px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Browser Selection */
+.browser-selection {
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.browser-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 15px;
+	width: 70px;
+	height: 70px;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+	color: white;
+	font-size: 28px;
+}
+
+/* Browser Colors */
+#chrome + .browser-label {
+	background: #f4b400;
+} /* Chrome - Yellow */
+#firefox + .browser-label {
+	background: #ff7139;
+} /* Firefox - Orange */
+#opera + .browser-label {
+	background: #cc0f16;
+} /* Opera - Red */
+#edge + .browser-label {
+	background: #0078d7;
+} /* Edge - Blue */
+
+/* Hover & Selected Effect */
+.browser-label:hover,
+.browser-input:checked + .browser-label {
+	border: 2px solid white;
+	transform: scale(1.1);
+}
+
+.browser-input {
+	display: none;
+}
+
+/* Dropdown */
+select {
+	width: 100%;
+	margin-bottom: 1.5rem;
+	padding: 12px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	cursor: pointer;
+}
+
+/* Dropdown Readability */
+option {
+	background: #222;
+	color: white;
+}
+
+/* Button */
+button {
+	width: 100%;
+	padding: 12px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	background: #439845;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s ease;
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+}
+
+button:hover,
+button:active {
+	background: #3b873f;
+}
