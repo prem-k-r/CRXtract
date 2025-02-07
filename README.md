@@ -12,7 +12,6 @@ Effortlessly download source code for browser extensions with **Code Diveify**. 
 
 ![image](https://github.com/user-attachments/assets/342eb4f6-27cf-47b8-ad95-8cc1a2e64ab6)
 
-
 ## Features
 
 - **Multi-Browser Support**: Works with Chrome, Firefox, Edge, and Opera.
@@ -23,8 +22,8 @@ Effortlessly download source code for browser extensions with **Code Diveify**. 
 
 ## How It Works
 
-1. Select your browser.
-2. Enter the extension ID or full URL.
+1. Enter the extension ID or full URL.
+2. Select a browser.
 3. Choose the format (CRX, ZIP, or XPI).
 4. Click **Download Extension** to get the source file.
 
