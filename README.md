@@ -28,11 +28,11 @@ Effortlessly download source code for browser extensions with **Code Diveify**. 
 ## Supported Browsers & Formats
 
 | Store            | Browser | Formats Supported |
-| ---------------- | ------- | ----------------- |
-| Chrome Web store | Chrome  | CRX, ZIP          |
+| ---------------- | :-----: |:----------------: |
+| Chrome Web store | Chrome  | CRX, ~ZIP~        |
 | Firefox Add-ons  | Firefox | XPI, ZIP          |
-| Edge Add-ons     | Edge    | CRX, ZIP          |
-| Opera Addons     | Opera   | CRX, ZIP          |
+| Edge Add-ons     | Edge    | CRX, ~ZIP~        |
+| Opera Addons     | Opera   | CRX, ~ZIP~        |
 
 Also supports Allizom, Dev.Allizom, and Thunderbird domains for Firefox.
 
