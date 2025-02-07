@@ -46,6 +46,14 @@ Also supports Allizom, Dev.Allizom, and Thunderbird domains for Firefox.
 
 - ZIP extension downloads may be restricted due to CORS policies in Chrome, Edge, Opera and Thunderbird.
 
+## License
+
+Copyright (C) 2025 Prem Kumar
+
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+[GitHub](https://github.com/prem-k-r) &nbsp; [Telegram](https://t.me/prem12321kumar) &nbsp; [Email](mailto:prem12321kumar@gmail.com)
+
 ## Get Started
 
 Try **Code Diveify** now and explore the source code of your favorite extensions effortlessly!
