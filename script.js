@@ -196,7 +196,7 @@ function convertURLToZip(url, extensionId) {
         })
         .catch((error) => {
             console.error("Error converting CRX to ZIP:", error);
-            alert(`Please ensure that the Extension ID or URL and browser are correct.\n\nIf it is, the request has been blocked due to the CORS policy.\nSelect 'Download as XPI' and manually rename the file extension to .zip after downloading.`);
+            alert(`Please ensure that the Extension ID or URL and browser are correct.\n\nIf it is, the request has been blocked due to the CORS policy.`);
         });
 }
 
