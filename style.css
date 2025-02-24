@@ -14,8 +14,7 @@ body {
 	justify-content: center;
 	padding: 2rem;
 	/* background: #121212; */
-	background: url("images/designed_by_starline-freepik.jpg") no-repeat center
-		center/cover;
+	background: url("images/Background_Image.jpg") no-repeat center center/cover;
 	color: white;
 }
 
