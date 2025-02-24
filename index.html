@@ -7,7 +7,6 @@
     <title>Code Diveify - Extension Downloader</title>
     <link rel="icon" href="svgs/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script defer src="script.js"></script>
 </head>
 
@@ -20,16 +19,24 @@
             <!-- Browser Selection -->
             <div class="browser-selection">
                 <input type="radio" id="chrome" name="browser" value="chrome" class="browser-input" checked>
-                <label for="chrome" class="browser-label"><i class="fab fa-chrome"></i></label>
+                <label for="chrome" class="browser-label">
+                    <img src="svgs/chrome.svg" alt="Chrome" width="30" height="30">
+                </label>
 
                 <input type="radio" id="firefox" name="browser" value="firefox" class="browser-input">
-                <label for="firefox" class="browser-label"><i class="fab fa-firefox"></i></label>
+                <label for="firefox" class="browser-label">
+                    <img src="svgs/firefox.svg" alt="Firefox" width="30" height="30">
+                </label>
 
                 <input type="radio" id="opera" name="browser" value="opera" class="browser-input">
-                <label for="opera" class="browser-label"><i class="fab fa-opera"></i></label>
+                <label for="opera" class="browser-label">
+                    <img src="svgs/opera.svg" alt="Opera" width="30" height="30">
+                </label>
 
                 <input type="radio" id="edge" name="browser" value="edge" class="browser-input">
-                <label for="edge" class="browser-label"><i class="fab fa-edge"></i></label>
+                <label for="edge" class="browser-label">
+                    <img src="svgs/edge.svg" alt="Edge" width="30" height="30">
+                </label>
             </div>
 
             <input type="text" id="extensionInput" placeholder="Enter Extension ID or URL">
