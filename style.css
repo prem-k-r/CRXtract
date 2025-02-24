@@ -18,6 +18,44 @@ body {
 	color: white;
 }
 
+/* GitHub Icon */
+.github-container {
+	position: fixed;
+	top: 1.5rem;
+	right: 1.7rem;
+	z-index: 1;
+}
+
+.github-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.9;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.github-link::after {
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 16px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	transition: all 0.3s ease-in-out;
+}
+
+.github-link:hover {
+	transform: scale(1.1);
+	opacity: 1;
+}
+
 /* Glassmorphic Card */
 .glass-card {
 	width: 100%;
