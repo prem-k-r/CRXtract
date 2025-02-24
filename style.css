@@ -174,3 +174,10 @@ button:hover,
 button:active {
 	background: #257629;
 }
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+	.browser-selection {
+		gap: 1rem;
+	}
+}
