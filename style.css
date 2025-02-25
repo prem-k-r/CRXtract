@@ -180,4 +180,8 @@ button:active {
 	.browser-selection {
 		gap: 1rem;
 	}
+
+	.glass-card {
+		padding: 1.5rem;
+	}
 }
