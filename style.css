@@ -176,7 +176,7 @@ button:active {
 }
 
 /* Responsive adjustment */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 	.browser-selection {
 		gap: 1rem;
 	}
