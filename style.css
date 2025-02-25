@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 	scrollbar-width: none;
+	user-select: none;
 }
 
 * ::-webkit-scrollbar {
@@ -165,13 +166,32 @@ button:active {
 	margin-top: 1rem;
 }
 
+#convertButton:disabled {
+	opacity: 0.75;
+	pointer-events: none;
+}
+
 /* Drop Zone */
 .drop-zone {
 	border: 2px dashed rgba(255, 255, 255, 0.6);
-	padding: 2rem;
+	padding: 1.75rem;
 	cursor: pointer;
 	border-radius: 10px;
 	transition: 0.3s ease-in-out;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* File name text inside drop zone */
+.drop-zone p {
+	word-wrap: break-word;
+	max-width: 90%;
+	text-align: center;
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 .drop-zone:hover {

@@ -36,10 +36,10 @@ function updateDownloadOptions() {
     const downloadType = document.getElementById('downloadType');
 
     const options = {
-        chrome: ['crx', 'zip'],
+        chrome: ['crx'],
         firefox: ['xpi', 'zip'],
-        opera: ['crx', 'zip'],
-        edge: ['crx', 'zip']
+        opera: ['crx'],
+        edge: ['crx']
     };
 
     downloadType.innerHTML = "";
@@ -109,12 +109,8 @@ function downloadExtension() {
         return;
     }
 
-    if (downloadType === "zip") {
-        if (browser === "firefox") {
-            convertXpiToZip(downloadUrl, extensionId);
-            return;
-        }
-        convertURLToZip(downloadUrl, extensionId);
+    if (downloadType === "zip" && browser === "firefox") {
+        convertXpiToZip(downloadUrl, extensionId);
         return;
     }
 
@@ -136,7 +132,6 @@ function extractExtensionId(input, browser) {
     }
 
     const match = patterns[browser]?.exec(input);
-
     return match ? match[1] : null;
 }
 
@@ -167,49 +162,6 @@ function getDownloadUrl(browser, extensionId) {
     return baseUrls[browser];
 }
 
-// CRX to ZIP
-function ArrayBufferToBlob(arraybuffer) {
-    var buf = new Uint8Array(arraybuffer);
-    var publicKeyLength, signatureLength, zipStartOffset;
-
-    if (buf[4] === 2) {
-        publicKeyLength = buf[8] + (buf[9] << 8) + (buf[10] << 16) + (buf[11] << 24);
-        signatureLength = buf[12] + (buf[13] << 8) + (buf[14] << 16) + (buf[15] << 24);
-        zipStartOffset = 16 + publicKeyLength + signatureLength;
-    } else {
-        publicKeyLength = buf[8] + (buf[9] << 8) + (buf[10] << 16) + (buf[11] << 24 >>> 0);
-        zipStartOffset = 12 + publicKeyLength;
-    }
-
-    return new Blob([new Uint8Array(arraybuffer, zipStartOffset)], { type: 'application/zip' });
-}
-
-function convertURLToZip(url, extensionId) {
-    fetch(url)
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => {
-            const zipBlob = ArrayBufferToBlob(arrayBuffer);
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(zipBlob);
-            link.download = `${extensionId}.zip`;
-            link.click();
-        })
-        .catch((error) => {
-            console.error("Error converting CRX to ZIP:", error);
-            alert(`Please ensure that the Extension ID or URL and browser are correct.\n\nIf it is, the request has been blocked due to the CORS policy.`);
-        });
-}
-
-function convertCRXFileToZip(file, callback) {
-    var reader = new FileReader();
-    reader.onload = function (event) {
-        var arrayBuffer = event.target.result;
-        var zipBlob = ArrayBufferToBlob(arrayBuffer);
-        callback(zipBlob);
-    };
-    reader.readAsArrayBuffer(file);
-}
-
 // XPI to ZIP
 function convertXpiToZip(url, extensionId) {
     fetch(url)
@@ -226,6 +178,95 @@ function convertXpiToZip(url, extensionId) {
         })
         .catch((error) => {
             console.error("Error converting XPI to ZIP:", error);
-            alert(`Please ensure that the Extension ID or URL and browser are correct.\n\nIf it is, the request has been blocked due to the CORS policy.\nSelect 'Download as XPI' and manually rename the file extension to .zip after downloading.`);
+            alert(`Please ensure that the Extension ID or URL and browser are correct.`);
         });
+}
+
+// Handle file uploads for CRX/XPI conversion
+const dropZone = document.getElementById("dropZone");
+const fileInput = document.getElementById("fileInput");
+const dropText = document.getElementById("dropText");
+const convertButton = document.getElementById("convertButton");
+
+// Initially disable the convert button
+convertButton.disabled = true;
+
+// Click to open file selection
+dropZone.addEventListener("click", () => fileInput.click());
+
+// Handle file selection
+fileInput.addEventListener("change", handleFileSelect);
+dropZone.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    dropZone.style.background = "rgba(255, 255, 255, 0.2)";
+});
+dropZone.addEventListener("dragleave", () => {
+    dropZone.style.background = "transparent";
+});
+dropZone.addEventListener("drop", (event) => {
+    event.preventDefault();
+    fileInput.files = event.dataTransfer.files;
+    handleFileSelect();
+});
+
+function handleFileSelect() {
+    if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        dropText.textContent = `Selected: ${file.name}`;
+        convertButton.disabled = false;
+    } else {
+        dropText.textContent = "Drop your .crx or .xpi file here or click to browse";
+        convertButton.disabled = true;
+    }
+}
+
+// Handle Convert Button Click
+convertButton.addEventListener("click", function () {
+    if (fileInput.files.length === 0) return;
+
+    const file = fileInput.files[0];
+    convertFileToZip(file);
+});
+
+// Convert CRX/XPI to ZIP
+function convertFileToZip(file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const arrayBuffer = event.target.result;
+        let zipBlob;
+
+        if (file.name.endsWith(".crx")) {
+            zipBlob = ArrayBufferToBlob(arrayBuffer);
+        } else {
+            zipBlob = new Blob([arrayBuffer], { type: "application/zip" });
+        }
+
+        downloadZip(zipBlob, file.name.replace(/\.[^.]+$/, ".zip"));
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+// Convert CRX to ZIP (Strips CRX Header)
+function ArrayBufferToBlob(arraybuffer) {
+    var buf = new Uint8Array(arraybuffer);
+    var publicKeyLength, signatureLength, zipStartOffset;
+
+    if (buf[4] === 2) { // CRX v2 format
+        publicKeyLength = (buf[8] + (buf[9] << 8) + (buf[10] << 16) + (buf[11] << 24)) >>> 0;
+        signatureLength = (buf[12] + (buf[13] << 8) + (buf[14] << 16) + (buf[15] << 24)) >>> 0;
+        zipStartOffset = 16 + publicKeyLength + signatureLength;
+    } else { // CRX v3 format
+        publicKeyLength = (buf[8] + (buf[9] << 8) + (buf[10] << 16) + (buf[11] << 24)) >>> 0;
+        zipStartOffset = 12 + publicKeyLength;
+    }
+
+    return new Blob([new Uint8Array(arraybuffer, zipStartOffset)], { type: "application/zip" });
+}
+
+// Download the converted ZIP file
+function downloadZip(blob, fileName) {
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
 }
