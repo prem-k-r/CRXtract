@@ -3,6 +3,11 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: sans-serif;
+	scrollbar-width: none;
+}
+
+* ::-webkit-scrollbar {
+	display: none;
 }
 
 body {
@@ -184,11 +189,19 @@ button:active {
 }
 
 /* GitHub Icon */
-.github-container {
+.github-ribbon {
 	position: fixed;
-	top: 1.5rem;
-	right: 1.7rem;
-	z-index: 1;
+	top: 0;
+	right: 0;
+	width: 110px;
+	height: 110px;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	clip-path: polygon(100% 0, 0 0, 100% 100%);
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: 15px;
 }
 
 .github-icon {
@@ -197,26 +210,10 @@ button:active {
 	align-items: center;
 	justify-content: center;
 	opacity: 0.9;
-	border-radius: 50%;
-	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 }
 
-.github-icon::after {
-	content: "";
-	position: absolute;
-	width: 40px;
-	height: 16px;
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 50%;
-	top: 90%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: -1;
-	transition: all 0.3s ease-in-out;
-}
-
-.github-link:hover {
+.github-icon:hover {
 	transform: scale(1.1);
 	opacity: 1;
 }
@@ -238,6 +235,7 @@ button:active {
 	}
 
 	.glass-card {
+		margin-top: 3rem;
 		margin-left: 0;
 	}
 }
@@ -250,6 +248,7 @@ button:active {
 	}
 
 	.glass-card {
+		margin-top: 3rem;
 		padding: 2.25rem 1.5rem 1.67rem 1.5rem;
 		margin-left: 0;
 	}
