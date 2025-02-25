@@ -12,49 +12,62 @@
 
 <body>
     <div class="github-container">
-        <a href="https://github.com/prem-k-r/CodeDiveify" class="github-link" target="_blank">
+        <a href="https://github.com/prem-k-r/CodeDiveify" class="github-icon" target="_blank">
             <img src="svgs/github.svg" alt="GitHub" width="40px" height="40px">
         </a>
     </div>
 
-    <div class="glass-card">
-        <h1>Code Diveify</h1>
-        <h2>&lt;Source Code&gt; Downloader();</h2>
-        <form id="extensionForm">
+    <div class="container">
+        <div class="glass-card">
+            <h1>Code Diveify</h1>
+            <h2>Effortlessly Dive into the Source Code</h2>
+            <form id="extensionForm">
 
-            <!-- Browser Selection -->
-            <div class="browser-selection">
-                <input type="radio" id="chrome" name="browser" value="chrome" class="browser-input" checked>
-                <label for="chrome" class="browser-label">
-                    <img src="svgs/chrome.svg" alt="Chrome" width="30" height="30">
-                </label>
+                <!-- Browser Selection -->
+                <div class="browser-selection">
+                    <input type="radio" id="chrome" name="browser" value="chrome" class="browser-input" checked>
+                    <label for="chrome" class="browser-label">
+                        <img src="svgs/chrome.svg" alt="Chrome" width="30" height="30">
+                    </label>
 
-                <input type="radio" id="firefox" name="browser" value="firefox" class="browser-input">
-                <label for="firefox" class="browser-label">
-                    <img src="svgs/firefox.svg" alt="Firefox" width="30" height="30">
-                </label>
+                    <input type="radio" id="firefox" name="browser" value="firefox" class="browser-input">
+                    <label for="firefox" class="browser-label">
+                        <img src="svgs/firefox.svg" alt="Firefox" width="30" height="30">
+                    </label>
 
-                <input type="radio" id="opera" name="browser" value="opera" class="browser-input">
-                <label for="opera" class="browser-label">
-                    <img src="svgs/opera.svg" alt="Opera" width="30" height="30">
-                </label>
+                    <input type="radio" id="opera" name="browser" value="opera" class="browser-input">
+                    <label for="opera" class="browser-label">
+                        <img src="svgs/opera.svg" alt="Opera" width="30" height="30">
+                    </label>
 
-                <input type="radio" id="edge" name="browser" value="edge" class="browser-input">
-                <label for="edge" class="browser-label">
-                    <img src="svgs/edge.svg" alt="Edge" width="30" height="30">
-                </label>
+                    <input type="radio" id="edge" name="browser" value="edge" class="browser-input">
+                    <label for="edge" class="browser-label">
+                        <img src="svgs/edge.svg" alt="Edge" width="30" height="30">
+                    </label>
+                </div>
+
+                <input type="text" id="extensionInput" placeholder="Enter Extension ID or URL">
+
+                <select id="downloadType">
+                    <option value="crx">Download as CRX</option>
+                </select>
+
+                <button type="submit" id="downloadButton">
+                    Start Download
+                </button>
+            </form>
+        </div>
+
+        <div class="upload-card">
+            <h2>Convert to .zip</h2>
+            <div id="dropZone" class="drop-zone">
+                <img src="svgs/file-upload.svg" alt="Upload" width="36" height="36">
+                <p>Drop your .crx or .xpi file here or click to browse</p>
+                <input type="file" id="fileInput" accept=".crx, .xpi" hidden>
             </div>
-
-            <input type="text" id="extensionInput" placeholder="Enter Extension ID or URL">
-
-            <select id="downloadType">
-                <option value="crx">Download as CRX</option>
-            </select>
-
-            <button type="submit" id="downloadButton">
-                Download Extension
-            </button>
-        </form>
+            <p id="fileName" class="file-name"></p>
+            <button id="convertButton">Convert and Download</button>
+        </div>
     </div>
 
 </body>
