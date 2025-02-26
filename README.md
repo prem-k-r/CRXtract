@@ -12,11 +12,11 @@ Whether it's for **Chrome**, **Firefox**, **Edge**, or **Opera**, simply enter t
 ![image](https://github.com/user-attachments/assets/e689499c-74b4-480d-9384-c58336ff6c39)
 
 ## 🚀 Features
-- **🌍 Multi-Browser Stores Support**:
-   - **Chrome Web Store** (Google Chrome)  
-   - **Mozilla Add-ons** (Firefox)  
-   - **Microsoft Edge Add-ons** (Edge)  
-   - **Opera Add-ons** (Opera)
+- **Multi-Browser Stores Support**:
+   - **Chrome Web Store** → Google Chrome
+   - **Mozilla Add-ons** → Firefox
+   - **Microsoft Edge Add-ons** → Edge
+   - **Opera Add-ons** → Opera
    - Also supports **Allizom**, **Dev.Allizom**, and **Thunderbird** domains for Firefox.
 - **Smart Browser Detection**: Automatically detects the browser from the extension URL.
 - **CRX & XPI to ZIP Conversion**: Upload CRX/XPI files and convert them to ZIP. 
