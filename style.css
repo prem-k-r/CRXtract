@@ -211,11 +211,11 @@ button:active {
 /* GitHub Icon */
 .github-ribbon {
 	position: fixed;
-	top: -1px;
-	right: -1px;
+	top: 0;
+	right: 0;
 	width: 55px;
 	height: 55px;
-	border-radius: 0 0 0 50%;
+	border-radius: 50% 0 50% 50%;
 	background: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(10px);
@@ -230,7 +230,6 @@ button:active {
 	align-items: center;
 	justify-content: center;
 	opacity: 0.9;
-	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4));
 	transition: all 0.3s ease-in-out;
 }
 
