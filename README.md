@@ -36,7 +36,7 @@ Whether it's for **Chrome**, **Firefox**, **Edge**, or **Opera**, simply enter t
 2. Click **Convert and Download**.
 3. The ZIP file will be generated and downloaded.
 
-## ⚠️ Important Notes
+## ❗ Important Notes
 - 🚫 ZIP downloads are restricted due to CORS policies in Chrome, Edge, Opera and Thunderbird.
 - 🛠️ Use the new "**Convert to ZIP**" feature by uploading a `.crx` or `.xpi` file.  
 
