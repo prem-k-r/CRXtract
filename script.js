@@ -164,6 +164,11 @@ function getDownloadUrl(browser, extensionId) {
 
 // XPI to ZIP
 function convertXpiToZip(url, extensionId) {
+    if (url.includes("addons.thunderbird.net")) {
+        alert("Please download the XPI file first, then upload it here to convert it into a ZIP.");
+        return;
+    }
+
     fetch(url)
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => {
