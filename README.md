@@ -9,7 +9,7 @@ Effortlessly **download** or **convert** source code for browser extensions with
 
 Whether it's for **Chrome**, **Firefox**, **Edge**, or **Opera**, simply enter the extension ID or URL, select your desired format, and download the extension with ease or upload a CRX/XPI file to convert it to ZIP.
 
-![image](https://github.com/user-attachments/assets/e689499c-74b4-480d-9384-c58336ff6c39)
+![image](https://github.com/user-attachments/assets/200e9663-ce6f-4bc6-9b64-bb99d9ad7b64)
 
 ## 🚀 Features
 
