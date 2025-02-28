@@ -17,7 +17,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	padding: 2rem;
-	background: url("images/Background_Image.jpg") no-repeat center center/cover;
+	background: url("images/bg.jpg") no-repeat center center/cover;
 	color: white;
 }
 
@@ -36,7 +36,7 @@ body {
 	max-width: 30rem;
 	padding: 2.5rem;
 	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(150px);
 	border-radius: 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -103,7 +103,7 @@ input::placeholder {
 	cursor: pointer;
 	transition: all 0.3s ease;
 	border: 2px solid transparent;
-	background-color: rgba(0, 22, 56, 0.4);
+	background-color: rgba(0, 0, 0, 0.3);
 	font-size: 28px;
 }
 
@@ -111,7 +111,7 @@ input::placeholder {
 .browser-label:hover,
 .browser-input:checked + .browser-label {
 	border: 2px solid white;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 	transform: scale(1.1);
 }
 
